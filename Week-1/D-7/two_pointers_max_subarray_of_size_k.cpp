@@ -1,21 +1,19 @@
-long maximumSumSubarray(int k, vector<int> &a, int n)
+long maximumSumSubarray(int K, vector<int> &Arr, int N)
 {
-    int l = 0, r = 0;
-    long long sum = 0, ans = 0;
-    while (r < n)
+    // code here
+    long long sum = 0, mx = 0, l = 0, r = 0;
+
+    while (r < N)
     {
-        sum += a[r];
-        if ((r - l + 1) == k)
+        sum += Arr[r];
+
+        if (r - l + 1 == K)
         {
-            ans = max(ans, sum);
-            sum -= a[l];
+            mx = max(sum, mx);
+            sum -= Arr[l];
             l++;
-            r++;
         }
-        else
-        {
-            r++;
-        }
+        r++;
     }
-    return ans;
+    return mx;
 }
