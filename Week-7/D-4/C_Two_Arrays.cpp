@@ -2,42 +2,40 @@
 using namespace std;
 #define ll long long
 #define pb push_back
-#define yes cout << "YES" << '\n'
-#define no cout << "NO" << '\n'
+#define yes cout << "Yes" << '\n'
+#define no cout << "No" << '\n'
 #define nl cout << '\n';
 
 int main()
 {
     int test;
     cin >> test;
-    for (int i = 0; i < test; i++)
+    for (int t = 0; t < test; t++)
     {
-        int n, mx = -1, mxIdx;
+        int n;
         cin >> n;
         vector<int> v1(n), v2(n);
-        for (int j = 0; j < n; j++)
-        {
-            cin >> v1[j];
-            if (mx < v1[j])
-            {
-                mx = v1[j];
-                mxIdx = j;
-            }
-        }
 
         for (int j = 0; j < n; j++)
         {
-            cin >> v2[j];
+            int x;
+            cin >> x;
+            v1[j] = x + 1;
         }
-        int mxDiff = abs(v1[mxIdx] - v2[mxIdx]), flag = 1;
         for (int j = 0; j < n; j++)
         {
-            int x = v1[j] - v2[j];
-            if ((v2[j] == 0 && x <= mxDiff))
-            {
-                continue;
-            }
-            else if ((x != mxDiff || x < 0))
+            int x;
+            cin >> x;
+            v2[j] = x;
+        }
+        int flag = 1;
+        sort(v1.begin(), v1.end());
+        sort(v2.begin(), v2.end());
+
+        for (int j = 0; j < n; j++)
+        {
+            int diff = v1[j] - v2[j];
+            if (diff != 1 || diff != 0)
             {
                 flag = 0;
                 break;
