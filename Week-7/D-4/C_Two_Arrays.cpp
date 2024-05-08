@@ -2,8 +2,8 @@
 using namespace std;
 #define ll long long
 #define pb push_back
-#define yes cout << "Yes" << '\n'
-#define no cout << "No" << '\n'
+#define yes cout << "YES" << '\n'
+#define no cout << "NO" << '\n'
 #define nl cout << '\n';
 
 int main()
@@ -35,7 +35,9 @@ int main()
         for (int j = 0; j < n; j++)
         {
             int diff = v1[j] - v2[j];
-            if (diff != 1 || diff != 0)
+            if (diff == 1 || diff == 0)
+                continue;
+            else
             {
                 flag = 0;
                 break;
